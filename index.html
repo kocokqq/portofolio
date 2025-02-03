@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Bangun</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #000000;
+        }
+
+        section{
+            min-height: 100vh;
+            padding: 10rem 12% 10rem;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 12%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000; /* Warna awal navbar */
+            border-bottom: 1px solid #1a1a1a;
+            z-index: 1000;
+            transition: background-color 0.3s ease; /* Animasi perubahan warna */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00FFFF;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00FFFF;
+        }
+
+        /* Active Link Styling */
+        .nav-links a.active {
+        transition: all 1s ease-in-out;
+        color: #00FFFF; /* Warna teks aktif (cyan) */
+        border-bottom: 2px solid #00FFFF; /* Garis bawah untuk indikator aktif */
+        padding-bottom: 5px; /* Ruang tambahan untuk garis bawah */
+        }
+        
+        /* hero section style */
+
+        .hero {
+        min-height: 100vh;
+        padding: 5rem 12% 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap; /* Agar responsif */
+        gap: 2rem; /* Memberi jarak antar elemen */
+    }
+
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            color: #00FFFF;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* social media */
+        .social-icons {
+            display: flex;
+            justify-content: start;
+            gap: 15px; /* Space between icons */
+            margin: 30px 0px; /* Space above icons */
+        }
+
+        .social-icons .icon {
+            display: flex; /* Center the icon within the link */
+            justify-content: center;
+            align-items: center;
+            width: 40px; /* Adjust width as needed */
+            height: 40px; /* Adjust height as needed */
+            border-radius: 50%; /* Circular shape */
+            border: 2px solid #00FFFF;
+            background-color: black; /* Background color */
+            animation: glow 1.5s infinite alternate;
+            transition: background-color 0.3s, transform 0.3s; /* Animation for hover effect */
+        }
+
+        .social-icons .icon:hover {
+            background-color: #00FFFF; /* Change background on hover */
+            transform: scale(1.1); /* Scale effect on hover */
+        }
+
+        .social-icons .icon svg {
+            object-fit: cover;
+            fill: #00FFFF; /* Icon color */
+            transition: fill 0.3s; /* Animation for hover effect */
+        }
+
+        .social-icons .icon:hover svg {
+            fill: black; /* Change icon color on hover */
+        }
+        /* s */
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .cta-button {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background-color: #00FFFF;
+            color: #000000;
+        }
+
+        .secondary {
+            border: 2px solid #00FFFF;
+            color: #00FFFF;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .hero-image {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 10px double #00FFFF;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #00FFFF; }
+            100% { box-shadow: 0 0 20px #00FFFF; }
+        }
+
+        /* about me */
+        #about-me {
+            min-height: 100vh;
+            padding: 2rem 12% 10rem;
+            background-color: #0000001a; /* Background hitam */
+            color: #a5bebe; /* Teks cyan */
+            text-shadow: 0px 4px 15px #00ffff;
+        }
+
+        #about-me h2{
+            text-align: center;
+            padding: 10px 10px;
+            margin-bottom: 10px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: xx-large;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+            grid-template-rows: auto auto; /* 2 baris */
+            gap: 20px; /* Spacing between grid items */
+        }
+
+        .grid-item {
+            background-color: #000000; /* Background item */
+            color: #a5bebe; /* Warna teks cyan */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .grid-item h3 {
+            margin-bottom: 15px; /* Jarak di bawah judul */
+        }
+
+        .grid-item.profile {
+            grid-column: span 2; /* Profil mengambil 2 kolom */
+            border: 1px solid #308383;
+            box-shadow: 0px 4px 15px #308383 ;
+            background: url('channels4_banner.jpg') top/cover no-repeat;
+            font-weight: bold;
+            min-height: 170px;
+        }
+
+        .grid-item.experience {
+            grid-row: span 2; /* Pengalaman kerja mengambil 2 baris */
+        }
+
+        .experience-roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Jarak antar tahun */
+        }
+
+        /* Styling tahun */
+        .year-row {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Agar tahun selalu di tengah */
+            gap: 20px; /* Jarak antara tahun dan konten */
+            position: relative;
+            padding: 10px 0;
+        }
+
+        /* Styling tahun di tengah */
+        .year-label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #308383;
+            background-color: #1a1a1a;
+            padding: 5px 10px;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Styling konten di kiri */
+        .left-content {
+            text-align: right;
+            color: #a5bebe;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .left-content p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Styling konten di kanan */
+        .right-content {
+            text-align: left;
+            color: #a5bebe;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .right-content p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        /* css experience; */
+
+        .grid-item.name {
+            grid-column: span 1; /* Nama mengambil 1 kolom */
+            background-color: transparent;
+            margin: auto auto;
+        }
+
+        .grid-item.skills {
+            grid-row: span 2; /* Keahlian mengambil 2 baris */
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0.4em;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            }
+
+        .skills-list li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: transform 0.2s;
+            }
+
+        .skills-list li:hover {
+            transform: scale(1.05);
+            }
+
+        .skills-list img, .skills-list i {
+            width: 24px;
+            height: 24px;
+            }
+        /* skill ; */
+
+        .grid-item.hobbies {
+            grid-column: span 1; /* Hobi mengambil 1 kolom */
+            color: #a5bebe;
+        }
+        .grid-item.hobbies h3 {
+            grid-column: span 1; /* Hobi mengambil 1 kolom */
+            color: #308383;
+            font-size: x-large;
+            text-decoration: underline 2px #494c4c;
+            text-underline-offset: 20px;
+            padding: 1em;
+            margin: 3px;
+        }
+
+        .rpt {
+            color: #a5bebe;
+            text-decoration-color: #222323;
+            font-size: 0.82em;
+            text-align: center;
+        }
+
+        .grid-item.cta {
+            grid-column: span 1; /* Slogan mengambil 1 kolom */
+            margin: auto auto; /* Jarak dari elemen di atas */
+
+        }
+        
+        .am-button {
+            padding: 12px 30px; /* Ruang dalam tombol */
+            border-radius: 25px; /* Sudut tombol membulat */
+            text-decoration: none; /* Hilangkan garis bawah pada tautan */
+            font-weight: 600; /* Tebalkan font untuk tombol */
+            background-color: #3ed6d6; /* Warna latar belakang tombol */
+            color: #1a1a1a; /* Warna teks tombol */
+            transition: 0.3s; /* Efek transisi saat hover */
+            box-shadow: 0px 0px 10px 3px rgba(0, 255, 255, 0.8); /* Bayangan saat hover */
+
+        }
+
+        .am-button:hover {
+            transform: translateY(-3px); /* Gerakan naik sedikit saat hover */
+            box-shadow: 0px 0px 20px 5px rgba(0, 255, 255, 0.8); /* Bayangan saat hover */
+
+        }
+
+        /* about me; */
+        /* Styling untuk Services Section */
+        .services-container {
+            text-align: center;
+            padding: 50px 12%;
+        }
+
+        .services-container h2 {
+            font-size: xx-large;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color:#a5bebe;
+            text-shadow: 0px 4px 15px #00ffff;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .services {
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+            grid-template-rows: repeat(2, auto); /* 2 baris */
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #1541549d;
+            border-radius: 50px;
+            padding: 20px 10%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 30vh;
+        }
+
+        .service-card:hover {
+            transform: scale(2);
+            box-shadow: 0 5px 15px rgba(57, 255, 255, 0.759);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: #000000;
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 20px;
+            color: #a5bebef4;
+            text-shadow: 0 4px 15px #00ffff;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .service-description {
+            font-size: 14px;
+            color: #cccccc;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+/* Styling untuk Projects Section */
+.projects {
+    text-align: center;
+    padding: 10rem 12% 10rem;
+}
+
+.projects h2 {
+
+    font-size: xx-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#a5bebe;
+    text-shadow: 0px 4px 15px #00ffff;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    gap: 50px;
+    align-items: stretch;
+}
+
+.project-card {
+    background: #e0e1e1;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 4px 4px 10px rgba(59, 209, 209, 0.759);
+}
+
+.project-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(26, 252, 252, 0.907);
+}
+
+.project-image {
+    box-shadow: 4px 4px 10px rgba(0, 8, 8, 0.759);
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    color: #063939;
+    font-weight: 600;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.project-description {
+    font-size: 1rem;
+    color: #063939;
+    margin-top: 10px;
+    line-height: 1.6;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.project-tools {
+    font-size: 0.9rem;
+    color: #236565;
+    margin-top: 10px;
+}
+
+
+    /* Contact Section Styling */
+/* General Section Styling */
+.section-contact {
+  min-height: 100vh;
+  display: flex; /* Mengaktifkan flexbox */
+  justify-content: center; /* Pusat horizontal */
+  align-items: center; /* Pusat vertikal */
+  padding: 2rem 12% ;
+  background-color: #0000001a; /* Background hitam transparan */
+  color: #a5bebe; /* Teks cyan */
+  text-shadow: 0px 4px 15px #00ffff;
+  
+}
+
+.section-contact .container {
+  text-align: center; /* Memastikan teks di dalam container juga terpusat */
+  max-width: 600px; /* Batas lebar maksimum untuk formulir */
+  width: 100%; /* Menyesuaikan lebar dengan konten */
+}
+
+.section-contact h2 {
+  text-align: center;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: xx-large;
+}
+
+.section-contact .section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #236565; /* Warna abu-abu untuk subjudul */
+}
+
+.section-contact .contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.section-contact .form-group {
+  margin-bottom: 20px;
+}
+
+.section-contact .form-group input,
+.section-contact .form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #308383; /* Border biru kehijauan */
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #1a1a1a; /* Background gelap */
+  color: #a5bebe; /* Teks cyan */
+  transition: border-color 0.3s ease;
+}
+
+.section-contact .form-group input:focus,
+.section-contact .form-group textarea:focus {
+  border-color: #00ffff; /* Border cyan saat focus */
+  outline: none;
+}
+
+.section-contact .btn-submit {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: #3ed6d6; /* Warna latar belakang tombol */
+  color: #1a1a1a; /* Warna teks tombol */
+  transition: 0.3s;
+  box-shadow: 0px 0px 10px 3px rgba(0, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.section-contact .btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 0px 20px 5px rgba(0, 255, 255, 0.8);
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Daniel Bangun</div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about-me" class="nav-link">About Me</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#project" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero section">
+        <div class="hero-text">
+            <h1>Hi, It's <span style="color:#00FFFF;">Daniel</span></h1>
+            <h2>I'm a Web Developer</h2>
+            <p>Currently based in <span style="color: #00FFFF;">Medan</span>. I have a passion for creating intuitive and engaging websites that provide a great user experience. I love coding and continuously learning new technologies to improve my skills. Let's work together to bring your ideas to life!</p>
+            <div class="social-icons">
+                <a href="#" class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00FFFF" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.35C0 23.4.6 24 1.325 24h21.35c.725 0 1.325-.6 1.325-1.325V1.325C24 .6 23.4 0 22.675 0zm-2.225 12h-4.2v10h-5.6V12H8.6V9h4.35V6.5c0-4.3 2.65-6.5 6.5-6.5 1.85 0 3.5.15 4.15.25v4.75h-2.85c-2.25 0-2.75 1.1-2.75 2.7V9h5.6l-.75 3z"/></svg>
+                </a>
+                <a href="https://instagram.com/danielbangunn" class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00FFFF" viewBox="0 0 24 24"><path d="M12 2.163c3.206 0 3.593.012 4.858.07 1.307.058 2.337.278 2.883.6.551.324 1.045.77 1.426 1.426.322.546.542 1.576.6 2.883.058 1.265.07 1.652.07 4.858s-.012 3.593-.07 4.858c-.058 1.307-.278 2.337-.6 2.883-.324.551-.77 1.045-1.426 1.426-.546.322-1.576.542-2.883.6-1.265.058-1.652.07-4.858.07s-3.593-.012-4.858-.07c-1.307-.058-2.337-.278-2.883-.6-.551-.324-1.045-.77-1.426-1.426-.322-.546-.542-1.576-.6-2.883C2.175 12.755 2.163 12.368 2.163 9.163S2.175 5.593 2.233 4.328c.058-1.307.278-2.337.6-2.883.324-.551.77-1.045 1.426-1.426.546-.322 1.576-.542 2.883-.6C8.407 2.175 8.794 2.163 12 2.163zm0-2.163C8.74 0 8.328.012 7.088.071 5.85.131 4.974.312 4.293.725 3.616 1.137 3.037 1.716 2.725 2.393.312 5.974.312 8.659.312 12s0 6.026.414 8.608c.312.677.891 1.256 1.568 1.668.681.412 1.566.593 2.795.663 1.239.071 1.652.071 4.855.071 3.204 0 3.593-.012 4.858-.07 1.307-.058 2.337-.278 2.883-.6.551-.324 1.045-.77 1.426-1.426.322-.546.542-1.576.6-2.883.058-1.265.07-1.652.07-4.858s-.012-3.593-.07-4.858c-.058-1.307-.278-2.337-.6-2.883-.324-.551-.77-1.045-1.426-1.426-.546-.322-1.576-.542-2.883-.6C15.593.012 15.204 0 12 0zm0 5.839a6.161 6.161 0 1 0 0 12.322 6.161 6.161 0 0 0 0-12.322zm0 10.5a4.341 4.341 0 1 1 0-8.682 4.341 4.341 0 0 1 0 8.682zm4.631-9.637a1.293 1.293 0 1 0 0 2.586 1.293 1.293 0 0 0 0-2.586z"/></svg>
+                </a>
+                <a href="https://wa.me/6281260722627" class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30" fill="#00FFFF" viewBox="0 0 24 24"><path d="M12 2.043C6.634 2.043 2.051 6.62 2.051 12c0 2.137.8 4.083 2.11 5.604L1.39 22.003l5.784-2.029C7.977 20.184 9.897 21 12 21c5.365 0 9.948-4.577 9.948-9.947C21.948 6.619 17.365 2.043 12 2.043zm4.982 12h-2.483c-.129 1.455-.745 2.458-1.806 3.037-.746.416-1.73.7-2.666.7-1.4 0-2.38-.577-2.91-1.43-.43-.692-.645-1.46-.645-2.309 0-1.36.12-2.092.68-3.194 1.081-2.266 2.886-3.132 4.132-3.132.493 0 .975.037 1.54.126.498.075.73.289.73.714 0 .481-.375.67-.875 1.051-1.035.816-1.803 1.345-1.803 2.192 0 .576.313.896.875.896h2.125c.705 0 1.14.436 1.14 1.127 0 .696-.435 1.132-1.14 1.132z"/></svg>
+                </a>
+            </div>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button primary">Hire</a>
+                <a href="#contact" class="cta-button secondary">Contact</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="daniel bangun.png" alt="Amelia Morgan">
+        </div>
+    </section>
+
+    <!-- about me -->
+    <section id="about-me" class="section">
+        <h2> <span style="font-weight: bolder; font-size: 5rem; color: #308383; text-shadow: 2px 5px 5px #00ffff;">A</span>bout Me</h2>
+        <div class="grid-container">
+            <div class="grid-item profile">             
+            </div>
+            <div class="grid-item experience">
+                <h3 style="color: #308383; transform: rotate(90deg); text-align: justify; transform-origin: top left; white-space: nowrap; letter-spacing: 0.9rem; font-size: x-large; text-indent: 1rem;">Experience</h3>
+                <div class="experience-roadmap">
+                    <!-- Tahun 2022 -->
+                    <div class="year-row">
+                        <div class="left-content">
+                            <p>Internship at BKD SUMUT</p>
+                        </div>
+                        <div class="year-label">2022</div>
+                        <div class="right-content">
+                            <p>Worked as research assistant for ESA</p>
+                        </div>
+                    </div>
+            
+                    <!-- Tahun 2023 -->
+                    <div class="year-row">
+                        <div class="left-content">
+                            <p>Head of Fundraising Department</p>
+                        </div>
+                        <div class="year-label">2023</div>
+                        <div class="right-content">
+                            <p>Explored Web Development</p>
+                        </div>
+                    </div>
+            
+                    <!-- Tahun 2024 -->
+                    <div class="year-row">
+                        <div class="left-content">
+                            <p>Working as a Freelancer</p>
+                        </div>
+                        <div class="year-label">2024 <br>-<br>Now</div>
+                        <div class="right-content">
+                            <p style="text-align: center; font-size: x-large;">;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item skills">
+                <h3 style="color: #308383; font-size: x-large;">Skills</h3>
+                <ul class="skills-list">
+                    <li><i class="devicon-html5-plain colored"></i> <span style="color: #a5bebe;">HTML</span></li>
+                    <li><i class="devicon-css3-plain colored"></i> <span style="color: #a5bebe;">CSS</span></li>
+                    <li><i class="devicon-bootstrap-plain colored"></i> <span style="color: #a5bebe;">Bootstrap</span></li>
+                    <li><i class="devicon-tailwindcss-original colored"></i> <span style="color: #a5bebe;">Tailwind</span></li>
+                    <li><i class="devicon-javascript-plain colored"></i> <span style="color: #a5bebe;">JavaScript</span></li>
+                    <li><i class="devicon-python-plain colored"></i> <span style="color: #a5bebe;">Python</span></li>
+                    <li><i class="devicon-flask-plain"></i><span style="color: #a5bebe;">Flask</span></li>
+                    <li><i class="devicon-mysql-original"></i><span style="color: #a5bebe;">MySQL</span></li>
+                    <li><i class="devicon-firebase-plain colored"></i><span style="color:#a5bebe;">Firebase</span></li>
+                    <li><i class="devicon-wordpress-plain colored"></i> <span style="color:#a5bebe;">WordPress</span></li>            
+                    <li><i class="devicon-webflow-original colored"></i> <span style="color: #a5bebe;">Webflow</span></li>
+                    <li> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" /> <span style="color: #a5bebe;">Figma</span></li>
+                    <li><i class="devicon-xd-plain"></i><span style="color: #a5bebe;">Adobe Xd</span></li>
+                    <li><i class="devicon-git-plain colored"></i><span style="color: #a5bebe;">Git</span></li>     
+                </ul>
+            </div>
+            <div class="grid-item name" style="font-size: xx-large;">
+                <h1>Daniel Bangun</h1>
+            </div>
+            <div class="grid-item hobbies">
+                <h3>Current Learning / Goals</h3>
+                <p class="rpt">Currently, I’m diving deeper into Animation and React to build more dynamic and scalable web applications.<br> 
+                    My goals are to develop efficient and visually engaging websites, streamline workflows through automation, and contribute to open-source projects to expand my expertise</p>
+
+            </div>
+            <div class="grid-item cta">
+                <h3 style="color: #308383; text-shadow: 0 4px 15px #00ffff ;">Ready to bring your ideas to life?</h3>
+                <a href="#" class="am-button primary">Let’s Get Started!</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-container section">
+        <h2> <span style="font-weight: bolder; font-size: 4rem; color: #308383; text-shadow: 2px 5px 5px #00ffff;">S</span>ervices</h2>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3 class="service-title">Custom Website Development</h3>
+                <p class="service-description">
+                    "Building unique and tailored websites that align with your business goals, ensuring high performance and an engaging user experience."
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3 class="service-title">Web Design & UI/UX Optimization</h3>
+                <p class="service-description">
+                    "Enhancing user experience with intuitive and visually appealing designs to maximize engagement and usability."
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3 class="service-title">Website Maintenance & Optimization</h3>
+                <p class="service-description">
+                    "Keeping your website secure, fast, and up-to-date with regular maintenance and performance optimization."
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3 class="service-title">WordPress & Webflow Development</h3>
+                <p class="service-description">
+                    "Developing and managing websites using WordPress and Webflow, offering customizable features and seamless integrations."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="project" class="projects section">
+        <h2> <span style="font-weight: bolder; font-size: 4rem; color: #308383; text-shadow: 2px 5px 5px #00ffff;">P</span>rojects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="p0.png" alt="Project 1" class="project-image">
+                <h3 class="project-title">E-Commerce Website</h3>
+                <p class="project-description">Website for a retail store build</p>
+                <p class="project-description">Training</p>
+                <p class="project-tools">Tools: React, Firebase, Tailwind CSS</p>
+            </div>
+            <div class="project-card">
+                <img src="p1.png" alt="Project 2" class="project-image">
+                <h3 class="project-title">Portfolio Website</h3>
+                <p class="project-description">A responsive and interactive portfolio showcasing my works and skills.</p>
+                <p class="project-tools">HTML, CSS</p>
+            </div>
+            <div class="project-card">
+                <img src="p3.png" alt="Project 3" class="project-image">
+                <h3 class="project-title">Company Landing Page</h3>
+                <p class="project-description">A modern landing page with animations and an optimized layout.</p>
+                <p class="project-tools">HTML, Tailwind CSS, JavaScript, AOS</p>
+            </div>
+            <div class="project-card">
+                <img src="p5.png" alt="Project 4" class="project-image">
+                <h3 class="project-title">Music Recommendation</h3>
+                <p class="project-description">A music recommender website, user can add the recommendation to their playlist at Spotify</p>
+                <p class="project-tools">Python, JavaScript, Firebase, Spotify API</p>
+            </div>
+            <div class="project-card">
+                <img src="p2.png" alt="Project 5" class="project-image">
+                <h3 class="project-title">Pawn Shop Website</h3>
+                <p class="project-description">A pawn shop management system with inventory and financial report</p>
+                <p class="project-tools">Tailwind CSS, JavaScript, Flask, Firebase</p>
+            </div>
+            <div class="project-card">
+                <img src="p4.png" alt="Project 6" class="project-image">
+                <h3 class="project-title">Hospital Website</h3>
+                <p class="project-description">Hostipal management website</p>
+                <p class="project-description">Group Project</p>
+                <p class="project-tools">HTML, CSS, MySQL, PHP</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Contact Me Section -->
+    <section id="contact" class="section-contact section">
+        <div class="container">
+        <h2> <span style="font-weight: bolder; font-size: 4rem; color: #308383; text-shadow: 2px 5px 5px #00ffff;">C</span>ontact Me</h2>
+        <p class="section-subtitle">Let's work together to bring your ideas to life!</p>
+        <div class="contact-form">
+            <form action="https://formsubmit.co/danielcopral72@gmail.com" method="POST">
+            <!-- Name Field -->
+            <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <!-- Email Field -->
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <!-- Message Field -->
+            <div class="form-group">
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+        </div>
+    </section>
+
+      <!-- Footer -->
+    <footer style="background-color: #236565; text-align: center; font-weight: 600; color: #1a1a1a;">
+        <p>&copy; 2024 Daniel Bangun. All rights reserved.</p>
+    </footer>
+
+    <script>
+// JavaScript untuk deteksi scroll
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".section");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  window.addEventListener("scroll", () => {
+    let currentSection = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+
+      if (window.scrollY >= sectionTop - sectionHeight / 3) {
+        currentSection = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active"); // Hapus kelas 'active' dari semua tautan
+      if (link.getAttribute("href").includes(currentSection)) {
+        link.classList.add("active"); // Tambahkan kelas 'active' ke tautan yang sesuai
+      }
+    });
+  });
+});
+    </script>
+</body>
+</html>
